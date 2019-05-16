@@ -34,6 +34,15 @@ RUN    apk update \
 RUN curl -L --silent ${JMETER_PLUGINS_DOWNLOAD_URL}/jmeter-plugins-dummy/0.2/jmeter-plugins-dummy-0.2.jar -o ${JMETER_PLUGINS_FOLDER}/jmeter-plugins-dummy-0.2.jar
 RUN curl -L --silent ${JMETER_PLUGINS_DOWNLOAD_URL}/jmeter-plugins-cmn-jmeter/0.5/jmeter-plugins-cmn-jmeter-0.5.jar -o ${JMETER_PLUGINS_FOLDER}/jmeter-plugins-cmn-jmeter-0.5.jar
 
+# 6-B
+
+RUN curl -L --silent ${JMETER_PLUGINS_DOWNLOAD_URL}/cmdrunner/2.2.1/cmdrunner-2.2.1.jar -o ${JMETER_HOME}/lib/cmdrunner-2.2.jar
+RUN curl -L --silent ${JMETER_PLUGINS_DOWNLOAD_URL}/jmeter-plugins-manager/1.3/jmeter-plugins-manager-1.3.jar -o ${JMETER_PLUGINS_FOLDER}/jmeter-plugins-manager-1.3.jar
+
+RUN java -cp ${JMETER_PLUGINS_FOLDER}/jmeter-plugins-manager-1.3.jar org.jmeterplugins.repository.PluginManagerCMDInstaller
+
+RUN bash ${JMETER_BIN}/PluginsManagerCMD.sh install jpgc-casutg
+
 # 7
 ENV PATH $PATH:$JMETER_BIN
 
