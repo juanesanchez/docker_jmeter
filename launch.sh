@@ -30,4 +30,3 @@ echo "$CMD args=$@"
 # Keep entrypoint simple: we must pass the standard JMeter arguments
 jmeter -Juser.classpath="$JMETER_USER_CLASSPATH" $@
 echo "END Running Jmeter on `date`"
-
