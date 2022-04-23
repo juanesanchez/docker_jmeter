@@ -26,6 +26,7 @@ fi
 echo "START Running Apache JMeter on `date`"
 echo "JVM_ARGS=${JVM_ARGS}"
 echo "$CMD args=$@"
+echo "Started"
 
 # Keep entrypoint simple: we must pass the standard JMeter arguments
 jmeter -Juser.classpath="$JMETER_USER_CLASSPATH" $@
